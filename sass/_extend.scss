@@ -1,0 +1,22 @@
+
+%imagen-base {
+  width: 250px;
+  height: auto;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+
+  &:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+}
+
+
+/* Contenedor flex de la galería */
+.flex-galeria {
+  margin: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}

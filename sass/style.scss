@@ -1,55 +1,61 @@
 @use"utilidades/variables";
-nav { 
-    background-image: url(../img/playa.jpg);
-     background-size:cover;
-     background-repeat: no-repeat;
-     background-position: center; 
-     width: 100%;
-    height: 200px;}
-.conteiner{
+@use 'extend';
+@import 'mixin';
+
+nav {
+  background-image: url(../img/playa.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}
+.navbar-toggler{border-color: white;
+  border: white solid 4px}
+
+.conteiner{display: flex;
     max-width: 1200px;
     width: 80%;
     margin: 0 auto;
     padding: 30px;
 }
-h1{text-align: center;
-padding: 20px;}
-.p{ font-family: fantasy; text-align: center; color: black;}
+h1{
+  text-align: center;
+  padding: 20px;
+}
+h2{
+  margin: 1%;
+}
+.p{ margin: 1%;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   text-align: center; 
+   color: black;}
 
-.galeria img{ width: 250px;
-height: auto;
-transition: transform 0.3s ease;
-border-radius: 8px;}
+
+/* ===== GALERÍA ===== */
+.galeria img {
+  @extend %imagen-base;
+}
+
+
 .galeria img:hover{ transform: scale(1.2);cursor: pointer;}
 
-.flex-galeria {
+.flex-galeria {margin: 1%;
   display: flex;
   flex-wrap: wrap;        
   gap: 10px;              
   justify-content: center; 
 }
 
-.flex-galeria a {
-    grid-template-columns: repeat(4);
-  flex: 1 1 300px;        
-  max-width: 350px;       
-  width: 100%;
-  display: flex;         
- justify-content: center;
- align-items: center;
-}
-
-.flex-galeria img {
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-  border-radius: 10px;
-}
- .footer{ margin: 10px;text-align:  left ; font-size: 10px;
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-;
-
-}
+ .footer{
+   margin: 10px;
+   text-align:  left ; 
+   font-size: 10px;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+;}
 .misviajes { 
   border: 1px solid black; 
   text-align: center; 
@@ -59,4 +65,22 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 body {
     background-color: variables.$color-fondo;
 }
+.misviajes { margin: 1%;
+  display: flex;
+  border: 1px solid black;
+ justify-content: center;
+  background-color: hsl(190, 29%, 55%);
+}
+/* Vista Celu*/
+@media (max-width:768px){
+  .flex-galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+  .flex-galeria img {width: 80%;}
+}
 
+
+.nav-link {
+  @include menu-item; // Usa el mixin que creaste
+}
